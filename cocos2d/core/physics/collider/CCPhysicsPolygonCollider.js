@@ -23,7 +23,7 @@
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
  ****************************************************************************/
- 
+
 var PTM_RATIO = require('../CCPhysicsTypes').PTM_RATIO;
 var PolygonSeparator = require('../CCPolygonSeparator');
 
@@ -47,7 +47,7 @@ var PhysicsPolygonCollider = cc.Class({
         var shapes = [];
 
         var points = this.points;
-        
+
         // check if last point equal to first point
         if (points.length > 0 && points[0].equals(points[points.length - 1])) {
             points.length -= 1;
@@ -61,7 +61,7 @@ var PhysicsPolygonCollider = cc.Class({
 
             var shape = null, vertices = [];
             var firstVertice = null;
-            
+
             for (var j = 0, l = poly.length; j < l; j++) {
                 if (!shape) {
                     shape = new b2.PolygonShape();

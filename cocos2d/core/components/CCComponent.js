@@ -217,6 +217,17 @@ var Component = cc.Class({
         },
     },
 
+    //////// NEW, ADDED BY pTS
+    /**
+     *
+     */
+    onChange: null,
+    _executeOnChange()
+    {
+        if(this.onChange) this.onChange();
+    },
+    /////////////////
+
     // LIFECYCLE METHODS
 
     // Fireball provides lifecycle methods that you can specify to hook into this process.

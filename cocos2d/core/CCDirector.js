@@ -136,6 +136,10 @@ cc.Director = function () {
     // Action manager
     this._actionManager = null;
 
+    // Time Scale
+    this._timeScale = 1;
+
+
     var self = this;
     game.on(game.EVENT_SHOW, function () {
         self._lastUpdate = performance.now();
@@ -233,8 +237,17 @@ cc.Director.prototype = {
             this._deltaTime = 1 / 60.0;
 
         this._lastUpdate = now;
+
+        this._deltaTime *= this._timeScale;
     },
 
+    setTimeScale: function(value)
+    {
+        if(value > 0) this._timeScale = value;
+        else console.warn("The time-scale can not be <= 0.")
+    },
+
+    getTimeScale: function() { return this._timeScale },
     /**
      * !#en
      * Converts a view coordinate to an WebGL coordinate<br/>
@@ -919,6 +932,8 @@ cc.Director.prototype = {
     __fastOff: function (type, callback, target) {
         this.off(type, callback, target);
     },
+
+
 };
 
 // Event target

@@ -96,7 +96,7 @@ var CCFactory = dragonBones.CCFactory = cc.Class({
         }
 
         node.name = armatureName;
-        
+
         display._armatureName = armatureName;
         display._N$dragonAsset = comp.dragonAsset;
         display._N$dragonAtlasAsset = comp.dragonAtlasAsset;
@@ -104,7 +104,7 @@ var CCFactory = dragonBones.CCFactory = cc.Class({
 
         return display;
     },
-    
+
     _buildTextureAtlasData (textureAtlasData, textureAtlas) {
         if (textureAtlasData) {
             textureAtlasData.renderTexture = textureAtlas;
@@ -154,7 +154,7 @@ var CCFactory = dragonBones.CCFactory = cc.Class({
         armature.init(dataPackage.armature,
             display, display, this._dragonBones
         );
-        
+
         return armature;
     },
 

@@ -33,7 +33,7 @@ let Point = cc.Graphics.Point = cc.Class({
     ctor (x, y) {
         this.reset();
     },
-    
+
     reset () {
         this.dx = 0;
         this.dy = 0;
@@ -68,14 +68,14 @@ function Impl (graphics) {
     this._tessTol = 0.25;
     this._distTol = 0.01;
     this._updatePathOffset = false;
-    
+
     this._paths = null;
     this._pathLength = 0;
     this._pathOffset = 0;
-    
+
     this._points = null;
     this._pointsOffset = 0;
-    
+
     this._commandx = 0;
     this._commandy = 0;
 
@@ -89,17 +89,17 @@ cc.js.mixin(Impl.prototype, {
             this._pathOffset = this._pathLength;
             this._updatePathOffset = false;
         }
-    
+
         this._addPath();
         this._addPoint(x, y, PointFlags.PT_CORNER);
-    
+
         this._commandx = x;
         this._commandy = y;
     },
 
     lineTo (x, y) {
         this._addPoint(x, y, PointFlags.PT_CORNER);
-        
+
         this._commandx = x;
         this._commandy = y;
     },
@@ -107,14 +107,14 @@ cc.js.mixin(Impl.prototype, {
     bezierCurveTo (c1x, c1y, c2x, c2y, x, y) {
         var path = this._curPath;
         var last = path.points[path.points.length - 1];
-    
+
         if (last.x === c1x && last.y === c1y && c2x === x && c2y === y) {
             this.lineTo(x, y);
             return;
         }
-    
+
         Helper.tesselateBezier(this, last.x, last.y, c1x, c1y, c2x, c2y, x, y, 0, PointFlags.PT_CORNER);
-    
+
         this._commandx = x;
         this._commandy = y;
     },
@@ -157,7 +157,7 @@ cc.js.mixin(Impl.prototype, {
         this._pathLength = 0;
         this._pathOffset = 0;
         this._pointsOffset = 0;
-      
+
         this._curPath = null;
 
         if (clean) {
@@ -173,32 +173,32 @@ cc.js.mixin(Impl.prototype, {
     _addPath () {
         var offset = this._pathLength;
         var path = this._paths[offset];
-    
+
         if (!path) {
             path = new Path();
-    
+
             this._paths.push(path);
         } else {
             path.reset();
         }
-    
+
         this._pathLength++;
         this._curPath = path;
-    
+
         return path;
     },
-    
+
     _addPoint (x, y, flags) {
         var path = this._curPath;
         if (!path) return;
-    
+
         var pt;
         var points = this._points;
         var pathPoints = path.points;
-    
+
         var offset = this._pointsOffset++;
         pt = points[offset];
-    
+
         if (!pt) {
             pt = new Point(x, y);
             points.push(pt);
@@ -206,7 +206,7 @@ cc.js.mixin(Impl.prototype, {
             pt.x = x;
             pt.y = y;
         }
-    
+
         pt.flags = flags;
         pathPoints.push(pt);
     },

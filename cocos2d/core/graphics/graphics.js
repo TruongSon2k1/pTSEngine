@@ -54,7 +54,8 @@ let Graphics = cc.Class({
         _lineCap: LineCap.BUTT,
         _fillColor: cc.Color.WHITE,
         _miterLimit: 10,
-        
+
+
         /**
          * !#en
          * Current line width.
@@ -70,6 +71,7 @@ let Graphics = cc.Class({
             set (value) {
                 this._lineWidth = value;
                 this._impl.lineWidth = value;
+                this._executeOnChange();
             }
         },
 
@@ -88,6 +90,7 @@ let Graphics = cc.Class({
             set (value) {
                 this._lineJoin = value;
                 this._impl.lineJoin = value;
+                this._executeOnChange();
             },
             type: LineJoin
         },
@@ -107,6 +110,7 @@ let Graphics = cc.Class({
             set (value) {
                 this._lineCap = value;
                 this._impl.lineCap = value;
+                this._executeOnChange();
             },
             type: LineCap
         },
@@ -125,6 +129,7 @@ let Graphics = cc.Class({
             },
             set (value) {
                 this._impl.strokeColor = this._strokeColor = cc.color(value);
+                this._executeOnChange();
             }
         },
 
@@ -142,6 +147,7 @@ let Graphics = cc.Class({
             },
             set (value) {
                 this._impl.fillColor = this._fillColor = cc.color(value);
+                this._executeOnChange();
             }
         },
 
@@ -160,9 +166,12 @@ let Graphics = cc.Class({
             set (value) {
                 this._miterLimit = value;
                 this._impl.miterLimit = value;
+                this._executeOnChange();
             }
         }
     },
+
+
 
     statics: {
         LineJoin: LineJoin,
@@ -308,7 +317,7 @@ let Graphics = cc.Class({
     },
 
     /**
-     * !#en Adds an round corner rectangle to the path. 
+     * !#en Adds an round corner rectangle to the path.
      * !#zh 绘制圆角矩形路径。
      * @method roundRect
      * @param {Number} [x] The x axis of the coordinate for the rectangle starting point.

@@ -870,7 +870,7 @@ let NodeDefines = {
         },
         _localZOrder: {
             default: 0,
-            serializable: false
+            serializable: false,
         },
 
         _is3DNode: false,
@@ -1216,6 +1216,7 @@ let NodeDefines = {
                 if (this._eventMask & ROTATION_ON) {
                     this.emit(EventType.ROTATION_CHANGED);
                 }
+
             }
         },
 
@@ -1342,7 +1343,7 @@ let NodeDefines = {
                 if (CC_JSB && CC_NATIVERENDERER) {
                     this._proxy.updateSkew();
                 }
-            }
+            },
         },
 
         /**
@@ -1367,7 +1368,7 @@ let NodeDefines = {
                 if (CC_JSB && CC_NATIVERENDERER) {
                     this._proxy.updateSkew();
                 }
-            }
+            },
         },
 
         /**
@@ -1628,6 +1629,11 @@ let NodeDefines = {
             }
         },
     },
+
+    //////////////////////////////////////////////////////
+
+    //////////////////////////////////////////////////////
+
 
     /**
      * @method constructor

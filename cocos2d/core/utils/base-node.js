@@ -33,7 +33,7 @@ const RenderFlow = require('../renderer/render-flow');
 
 const Destroying = Flags.Destroying;
 const DontDestroy = Flags.DontDestroy;
-const Deactivating = Flags.Deactivating; 
+const Deactivating = Flags.Deactivating;
 
 const CHILD_ADDED = 'child-added';
 const CHILD_REMOVED = 'child-removed';
@@ -329,11 +329,11 @@ var BaseNode = cc.Class({
          */
         this.__eventTargets = [];
     },
-    /** 
+    /**
      * !#en The parent of the node.
      * !#zh 该节点的父节点。
      * @property {Node} parent
-     * @example 
+     * @example
      * cc.log("Node Parent: " + node.parent);
      */
 
@@ -601,7 +601,7 @@ var BaseNode = cc.Class({
                 // post call
                 postfunc(curr);
             }
-            
+
             // Avoid memory leak
             stack[index] = null;
             // Do not repeatly visit child tree, just do post call and continue walk

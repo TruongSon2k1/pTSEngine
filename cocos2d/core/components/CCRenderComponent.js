@@ -69,6 +69,7 @@ let RenderComponent = cc.Class({
             set (val) {
                 this._materials = val;
                 this._activateMaterial();
+                this._executeOnChange();
             },
             type: [Material],
             displayName: 'Materials',
