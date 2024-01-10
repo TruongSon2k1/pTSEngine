@@ -1,6 +1,2 @@
-/lib
-/bin
-/web.config
 .idea
 .DS_Store
-build
